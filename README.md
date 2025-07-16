@@ -1,5 +1,4 @@
 # malla-obstetricia UPAO
-index_html = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,9 +12,6 @@ index_html = """
   <script src="script.js"></script>
 </body>
 </html>
-"""
-
-style_css = """
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -66,34 +62,7 @@ h1 {
 .curso.bloqueado:hover {
   background-color: #eee;
 }
-"""
-
-readme_md = """
-# Malla Curricular Interactiva - Obstetricia
-
-Este proyecto muestra una malla curricular interactiva para la carrera de Obstetricia. Los cursos están conectados por prerrequisitos: al marcar uno como aprobado, se desbloquean los siguientes.
-
-## ✨ Funcionalidades
-- Puedes marcar cursos como aprobados (se tachan).
-- Desbloquea automáticamente cursos dependientes.
-- Guarda tu progreso localmente (localStorage del navegador).
-
-## 🛠 Tecnologías usadas
-- HTML
-- CSS (paleta guinda)
-- JavaScript
-
-## 🚀 Cómo usarlo
-1. Sube estos archivos a un repositorio público en GitHub.
-2. Activa GitHub Pages desde **Settings > Pages** usando la rama `main` y carpeta `/root`.
-3. Accede desde: `https://TU_USUARIO.github.io/TU_REPOSITORIO/`.
-
-Creado con ❤️ para estudiantes de Obstetricia.
-"""
-
-# Guardar el archivo JS (debido a longitud lo importamos separado)
-script_js_path = Path("/mnt/data/script.js")
-script_js_code = """const cursos = [
+const cursos = [
   { nombre: "COMUNICACIÓN I", abre: ["COMUNICACIÓN II"] },
   { nombre: "MATEMÁTICA", abre: ["BIOESTADÍSTICA"] },
   { nombre: "METODOLOGÍA DEL APRENDIZAJE UNIVERSITARIO" },
@@ -189,6 +158,7 @@ function actualizarVista() {
   });
 }
 
+// Crea relaciones inversas (abiertoPor)
 cursos.forEach(c => {
   c.abre?.forEach(dep => {
     const target = cursos.find(x => x.nombre === dep);
