@@ -1,7 +1,4 @@
-from zipfile import ZipFile
-from pathlib import Path
-
-# Crear archivos individuales corregidos
+# malla-obstetricia UPAO
 index_html = """
 <!DOCTYPE html>
 <html lang="es">
